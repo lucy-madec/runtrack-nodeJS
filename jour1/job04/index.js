@@ -12,8 +12,12 @@ fs.readdir('.', {withFileTypes: true}, (err, files) => {
     const directories = files.filter(file => file.isDirectory());
 
     // Affichage des noms des dossiers
-    console.log("Dossiers présents dans le répertoire courant :");
-    directories.forEach(directory => {
-        console.log(directory.name);
-    });
+    if (directories.length === 0) {
+        console.log("Aucun dossier présent dans le répertoire courant.");
+    } else {
+        console.log("Dossiers présents dans le répertoire courant :");
+        directories.forEach(directory => {
+            console.log(directory.name);
+        });
+    }
 });
