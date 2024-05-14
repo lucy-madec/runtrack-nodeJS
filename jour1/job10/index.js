@@ -20,3 +20,12 @@ const newURL = url.format({
     query: params
 });
 console.log("Nouvelle URL avec le nouveau nom d'hôte :", newURL);
+
+// Ajout d'un paramètre à la nouvelle URL
+const newParams = { ...params, additionalParam: "valeur" };
+const updatedURL = url.format({
+    protocol: protocol,
+    hostname: newHostname,
+    query: newParams
+});
+console.log("Nouvelle URL avec le paramètre ajouté :", updatedURL);
