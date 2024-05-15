@@ -22,3 +22,8 @@ const server = http.createServer((req, res) => {
         }
     });
 });
+
+// Lancement du serveur
+server.listen(port, () => {
+    console.log("Serveur en cours d'exécution sur http://localhost:${port}/");
+});
