@@ -9,7 +9,11 @@ const protocol = url.parse(URL).protocol;
 console.log("Protocole utilisé :", protocol);
 
 // Récupération du nom d'hôte
-const hostname = url.parse(URL, true).query;
+const hostname = url.parse(URL).hostname;
+console.log("Nom d'hôte :", hostname);
+
+// Récupération des paramètres de l'URL
+const params = url.parse(URL, true).query;
 console.log("Paramètres de l'URL :", params);
 
 // Reformater l'URL avec un nouveau nom d'hôte
