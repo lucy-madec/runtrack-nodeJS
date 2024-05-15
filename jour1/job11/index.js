@@ -7,7 +7,7 @@ const port = 8888;
 // Création du serveur
 const server = http.createServer((req, res) => {
     // Définition de l'en-tête de la réponse
-    res.writeHead(200, { 'Conternt-Type': 'text/plain' });
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     // Envoi la réponse
     res.end('Hello World!\n');
 });
