@@ -15,12 +15,19 @@ const server = http.createServer((req, res) => {
         filePath = path.join(__dirname, 'index.html');
     } else if (req.url === '/about') {
         filePath = path.join(__dirname, 'about.html');
+    } else {
+        // Chemin vers la page d'erreur
+        filePath = path.join(__dirname, 'error.html');
+        res.writeHead(404, { 'Content-Type': contentType });
     }
 
     // Lecture et récupération du fichier HTML approprié
     fs.readFile(filePath, (err, data) => {
-        if (!err) {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
+        if (err) {
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Erreur du serveur interne');
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
             res.end(data);
         }
     });
