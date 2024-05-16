@@ -47,7 +47,7 @@ router.put('/tasks/:id', (req, res) => {
         return res.status(404).json({ message: 'Tâche non trouvée' });
     }
 
-    data[taskIndex] = { ...data[taskIndex], ...req;body };
+    data[taskIndex] = { ...data[taskIndex], ...req.body };
     writeData(data);
     res.json(data[taskIndex]);
 });
