@@ -10,6 +10,6 @@ const app = express();
 app.use(bodyParser.json());
 
 // Utilisation des routes définies dans routes.js
-app;use('/api', routes);
+app.use('/api', routes);
 
 module.exports = app;
