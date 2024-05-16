@@ -15,19 +15,11 @@ const server = http.createServer((req, res) => {
         filePath = path.join(__dirname, 'index.html');
     } else if (req.url === '/about') {
         filePath = path.join(__dirname, 'about.html');
-    } else {
-        // Si l'URL n'est ni '/' ni '/about' alors il renvoie une erreur 404
-        res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('404 Not Found');
-        return;
     }
 
     // Lecture et récupération du fichier HTML approprié
     fs.readFile(filePath, (err, data) => {
-        if (err) {
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Erreur du serveur interne');
-        } else {
+        if (!err) {
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(data);
         }
