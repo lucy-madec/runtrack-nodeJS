@@ -1,15 +1,11 @@
 const express = require('express');
-const bodyParder = require('body-parser');
-const routes = require('./routes');
-const exp = require('constants');
-const bodyParser = require('body-parser');
-
 const app = express();
+const routes = require('./routes');
 
-// Middleware pour parser le JSON
-app.use(bodyParser.json());
-
-// Utilisation des routes définies dans routes.js
+app.use(express.json());
 app.use('/api', routes);
 
-module.exports = app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log('Server is runnung on port ${PORT}');
+});
